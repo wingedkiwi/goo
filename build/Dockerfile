@@ -1,0 +1,9 @@
+FROM golang:latest
+COPY *.go /go/src/gopkg/
+COPY bin/run.sh /opt/bin/run.sh
+RUN cd /go/src/gopkg && go get -d -v
+RUN cd /go/src/gopkg && go install -v
+
+EXPOSE 80
+
+CMD ["/opt/bin/boot.sh"]
