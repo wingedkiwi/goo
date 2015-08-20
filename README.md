@@ -1,1 +1,3 @@
-Implements golang's [remote import paths](https://golang.org/cmd/go/#hdr-Remote_import_paths) for bonds.
+# goo
+
+Implements Go's [Custom Remote Import Paths](https://golang.org/cmd/go/#hdr-Remote_import_paths).

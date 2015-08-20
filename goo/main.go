@@ -1,6 +1,6 @@
 // (c) Chi Vinh Le <cvl@chinet.info> – 13.06.2015
 
-package gopkg
+package main
 
 import (
 	"flag"
@@ -54,35 +54,35 @@ func respond(w http.ResponseWriter, t *template.Template, data interface{}) {
 
 func main() {
 	var bbUserName, bbConsumerKey, bbConsumerSecret, bbAccessToken, bbAccessTokenSecret string
-	if val := os.Getenv("GOPKG_DOMAIN"); val != "" {
+	if val := os.Getenv("GOO_DOMAIN"); val != "" {
 		domain = val
 	} else {
-		log.Fatal("GOPKG_DOMAIN env variable not set")
+		log.Fatal("GOO_DOMAIN env variable not set")
 	}
-	if val := os.Getenv("GOPKG_BITBUCKET_USERNAME"); val != "" {
+	if val := os.Getenv("GOO_BITBUCKET_USERNAME"); val != "" {
 		bbUserName = val
 	} else {
-		log.Fatal("GOPKG_BITBUCKET_USERNAME env variable not set")
+		log.Fatal("GOO_BITBUCKET_USERNAME env variable not set")
 	}
-	if val := os.Getenv("GOPKG_BITBUCKET_CONSUMER_KEY"); val != "" {
+	if val := os.Getenv("GOO_BITBUCKET_CONSUMER_KEY"); val != "" {
 		bbConsumerKey = val
 	} else {
-		log.Fatal("GOPKG_BITBUCKET_CONSUMER_KEY env variable not set")
+		log.Fatal("GOO_BITBUCKET_CONSUMER_KEY env variable not set")
 	}
-	if val := os.Getenv("GOPKG_BITBUCKET_CONSUMER_SECRET"); val != "" {
+	if val := os.Getenv("GOO_BITBUCKET_CONSUMER_SECRET"); val != "" {
 		bbConsumerSecret = val
 	} else {
-		log.Fatal("GOPKG_BITBUCKET_CONSUMER_SECRET env variable not set")
+		log.Fatal("GOO_BITBUCKET_CONSUMER_SECRET env variable not set")
 	}
-	if val := os.Getenv("GOPKG_BITBUCKET_ACCESS_TOKEN"); val != "" {
+	if val := os.Getenv("GOO_BITBUCKET_ACCESS_TOKEN"); val != "" {
 		bbAccessToken = val
 	} else {
-		log.Fatal("GOPKG_BITBUCKET_ACCESS_TOKEN env variable not set")
+		log.Fatal("GOO_BITBUCKET_ACCESS_TOKEN env variable not set")
 	}
-	if val := os.Getenv("GOPKG_BITBUCKET_ACCESS_TOKEN_SECRET"); val != "" {
+	if val := os.Getenv("GOO_BITBUCKET_ACCESS_TOKEN_SECRET"); val != "" {
 		bbAccessTokenSecret = val
 	} else {
-		log.Fatal("GOPKG_BITBUCKET_ACCESS_TOKEN_SECRET env variable not set")
+		log.Fatal("GOO_BITBUCKET_ACCESS_TOKEN_SECRET env variable not set")
 	}
 
 	discovery = NewBitbucketDiscovery(
