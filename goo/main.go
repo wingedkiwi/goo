@@ -9,9 +9,11 @@ import (
 	"net/http"
 	"os"
 	"text/template"
+
+	"github.com/wingedkiwi/goo/goo/discovery"
 )
 
-var discovery Discovery
+var disc discovery.Discovery
 var domain string
 
 func serve(w http.ResponseWriter, r *http.Request) {
@@ -24,7 +26,7 @@ func serve(w http.ResponseWriter, r *http.Request) {
 	}
 
 	repo := r.URL.Path[1:]
-	s, e := discovery.GetRepository(repo)
+	s, e := disc.GetRepository(repo)
 	if s == "" {
 		if e != nil {
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
@@ -85,7 +87,7 @@ func main() {
 		log.Fatal("GOO_BITBUCKET_ACCESS_TOKEN_SECRET env variable not set")
 	}
 
-	discovery = NewBitbucketDiscovery(
+	disc = discovery.NewBitbucketDiscovery(
 		bbUserName,
 		bbConsumerKey, bbConsumerSecret,
 		bbAccessToken, bbAccessTokenSecret,
